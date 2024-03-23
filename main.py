@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 import fastiecm
+from lib import display
+from lib import ndvi 
 
 def display(image, image_name):
   image = np.array(image, dtype=float)/float(255)
@@ -47,3 +49,4 @@ color_mapped_prep = ndvi_con.astype(np.uint8)
 color_mapped_image = cv2.applyColorMap(color_mapped_prep, fastiecm.fastiecm)
 display(color_mapped_image, 'Color mapped')
 cv2.imwrite('color_mapped_image.png', color_mapped_image)
+cv2.destroyAllWindows()
